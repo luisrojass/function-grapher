@@ -22,7 +22,7 @@ export const getMin = (arr) => {
 export const getDivisions = (min, max, divisions) => {
   const arr = []
   for (let i = min; i <= max; i += (max - min) / divisions) {
-    arr.push(i.toFixed(3))
+    arr.push(i)
   }
   return arr
 }

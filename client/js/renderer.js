@@ -60,6 +60,21 @@ export class FunctionRenderer {
 			lineWidth,
 			fillColor
 		}
+
+		// Set a background color to canvas
+		this.ctx.fillStyle = backgroundColor !== 'transparent'
+			? backgroundColor
+			: '#0000'
+		this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height)
+	}
+
+	resize(width, height) {
+		this.canvas.width = width
+		this.canvas.height = height
+	}
+
+	clear() {
+		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
 	}
 
 	render(arrX, arrY) {
@@ -74,10 +89,6 @@ export class FunctionRenderer {
 			console.log(err)
 			return true
 		}
-
-		// Set a background color to canvas
-		this.ctx.fillStyle = this.styles.backgroundColor
-		this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height)
 
 		// Set margins
 		const startWidth = canvas.width * 0.05
@@ -108,12 +119,17 @@ export class FunctionRenderer {
 			const yAxis = getDivisions(minY, maxY, this.config.AxisDivisionsY)
 			const minYAxis = getMin(yAxis)
 			const maxYAxis = getMax(yAxis)
+			const decimals = maxYAxis > 100
+				? 0 : maxYAxis > 10
+					? 1 : maxYAxis > 1
+						? 2 : 3
+			console.log(yAxis.length)
 
 			yAxis.forEach(el => {
 				// Render Y axis numbers
 				this.ctx.beginPath()
 				this.ctx.fillText(
-					el.toString(),
+					parseFloat(el).toFixed(decimals),
 					startWidth / 2,
 					map(el, minYAxis, maxYAxis, endHeight, startHeight)
 				)
