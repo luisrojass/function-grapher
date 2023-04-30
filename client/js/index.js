@@ -18,7 +18,7 @@ renderer.setConfig({
 })
 
 renderer.setStyle({
-  fontSize: 20
+  fontSize: 16
 })
 
 btn?.addEventListener('change', async (e) => {
