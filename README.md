@@ -8,8 +8,8 @@ You can try this app [here][deploy-app-link]
 You need to provide a json file following this example:
 ```
   {
-    x: [1, 2, 3],
-    y: [1, 4, 9]
+    "x": [1, 2, 3],
+    "y": [1, 4, 9]
   }
 ```
 
