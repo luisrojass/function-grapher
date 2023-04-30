@@ -1,0 +1,13 @@
+{
+  "name": "function-grapher",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./findMaxAbsorbance.js",
+  "description": "Web app to graph number list from a json file",
+  "scripts": {
+    "start": "node ./findMaxAbsorbance.js"
+  },
+  "keywords": [],
+  "author": "luisrojass",
+  "license": "MIT"
+}
